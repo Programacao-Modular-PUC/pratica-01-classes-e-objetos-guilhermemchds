@@ -6,31 +6,36 @@ class TrianguloRetangulo {
     double c1;
     double c2;
 
-    // Calcula a hipotenusa ao quadrado (h²)
-    public double CalculaHipotenusa() {
-        h = (c1 * c1) + (c2 * c2);
+    // Método para calcular a hipotenusa
+    double calculaHipotenusa(double c1, double c2) {
+        h = Math.sqrt(Math.pow(c1, 2) + Math.pow(c2, 2));
         return h;
     }
 
-    // Calcula a área
-    public double CalculaArea() {
-        return (c1 * c2) / 2;
+    // Método para calcular a área
+    double calculaArea(double c1, double c2) {
+        double area = (c1 * c2) / 2;
+        return area;
     }
+}
 
+public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
+
         TrianguloRetangulo t = new TrianguloRetangulo();
 
-        System.out.print("Digite o cateto 1: ");
-        t.c1 = sc.nextDouble();
+        System.out.print("Digite o valor do cateto 1: ");
+        double c1 = teclado.nextDouble();
 
-        System.out.print("Digite o cateto 2: ");
-        t.c2 = sc.nextDouble();
+        System.out.print("Digite o valor do cateto 2: ");
+        double c2 = teclado.nextDouble();
 
-        System.out.println("Hipotenusa ao quadrado (h²): " + t.CalculaHipotenusa());
-        System.out.println("Area do triangulo: " + t.CalculaArea());
+        double hipotenusa = t.calculaHipotenusa(c1, c2);
+        double area = t.calculaArea(c1, c2);
 
-        sc.close();
+        System.out.println("Hipotenusa = " + hipotenusa);
+        System.out.println("Área do triângulo = " + area);
     }
 }
